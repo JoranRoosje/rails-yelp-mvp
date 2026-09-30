@@ -4,3 +4,16 @@
   <div>Address: <%= @restaurant.address %></div>
   <div>Style: <%= @restaurant.category.capitalize %> style</div>
 </p>
+
+<p>
+  <%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
+</p>
+
+<p>
+  <h4>What people think about us:</h4>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li><%= review.content %>: ⭐ <%= review.rating %></li>
+    <% end %>
+  </ul>
+</p>
